@@ -17,9 +17,8 @@ download-data: download-deps download-train-stations-data
 
 setup-postgresql:
 	docker compose up -d
-	psql ${PSQL_AUTH}/postgres -c "CREATE DATABASE sncf"
 
-DATABASE_NAME=sncf
+DATABASE_NAME=default_database
 PSQL_AUTH=postgresql://username:password@localhost:5432
 
 
@@ -31,3 +30,15 @@ first-install: setup-postgresql load-data
 
 # connect to psql
 #	psql postgresql://username:password@localhost:5432/sncf
+
+# === elixir ===
+# Then configure your database in config/dev.exs and run:
+elixir-ecto-create:
+	mix ecto.create
+
+phoenix-start-server:
+	mix phx.server
+
+phoenix-start-server-iex:
+	iex -S mix phx.server
+
