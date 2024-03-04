@@ -20,10 +20,16 @@ defmodule TrainSimulatorWeb.Router do
     get "/", PageController, :home
   end
 
-  scope "/trains", TrainSimulatorWeb do
+  scope "/trains/live", TrainSimulatorWeb do
     pipe_through :browser
 
-    get "/", TrainsController, :index
+    get "/", TrainsController, :svg
+  end
+
+  scope "/trains", TrainSimulatorWeb do
+    pipe_through :api
+
+    get "/", TrainsController, :show_trains
   end
 
   # Other scopes may use custom stacks.
