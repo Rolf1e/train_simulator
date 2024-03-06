@@ -3,12 +3,12 @@ defmodule TrainSimulatorWeb.TrainsHTML do
 
   # <svg id="train_stations_map_svg" width="1000" height="1000">
   # <%= for {name, lg, lat } <- @train_stations do %>
-  # <circle id={name} 
-  # cx={at_scale(lg, 0)} 
-  # cy={at_scale(lat, 1)} 
-  # r="1" 
-  # stroke="black" 
-  # stroke-width="1" 
+  # <circle id={name}
+  # cx={at_scale(lg, 0)}
+  # cy={at_scale(lat, 1)}
+  # r="1"
+  # stroke="black"
+  # stroke-width="1"
   # fill="red"
   # />
   # <% end %>
@@ -18,7 +18,7 @@ defmodule TrainSimulatorWeb.TrainsHTML do
     Trains !!
 
     <div>
-      <canvas id="train_stations_map_canvas" width="1000" height="1000"> </canvas>
+      <canvas id="train_stations_map_canvas" width="1500" height="900"> </canvas>
       <script type="application/javascript">
         function draw() {
           console.log("Loading map ...")
@@ -39,8 +39,8 @@ defmodule TrainSimulatorWeb.TrainsHTML do
               const station = a[0]
               console.log(station)
                 a.forEach(station => {
-              ctx.moveTo(station.longitude * 50, station.latitude * 20)
-              ctx.arc(station.longitude * 50, station.latitude *20, 5, 0, Math.PI * 2, true)
+              ctx.moveTo(station.longitude * 100 +500, -station.latitude * 100 + 5120)
+              ctx.arc(station.longitude * 100 +500, -station.latitude * 100 + 5120, 2, 0, Math.PI * 2, true)
                 })
               ctx.stroke()
             })
